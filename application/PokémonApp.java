@@ -3,6 +3,7 @@ package be.intecbrussel.lambda.pokemon.application;
 import be.intecbrussel.lambda.pokemon.entity.PokéType;
 import be.intecbrussel.lambda.pokemon.entity.Pokémon;
 import be.intecbrussel.lambda.pokemon.entity.PokémonTrainer;
+import be.intecbrussel.lambda.pokemon.filter.PokémonStatFilter;
 
 public class PokémonApp {
 
@@ -28,6 +29,22 @@ public class PokémonApp {
 
         System.out.println(alex);
 
+        alex.searchStat(new PokémonStatFilter() {
+            @Override
+            public boolean filterStat(Pokémon pokémon) {
+                return pokémon.getAtk() > 25;
+            }
+        }, bulbasaur);
 
+        alex.searchStat(new PokémonStatFilter() {
+            @Override
+            public boolean filterStat(Pokémon pokémon) {
+                if (pokémon.getHp() > 20){
+                    System.out.println(pokémon);
+                    return true;
+                }
+                return false;
+            }
+        }, bulbasaur);
     }
 }
