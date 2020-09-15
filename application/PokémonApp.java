@@ -46,5 +46,8 @@ public class PokémonApp {
                 return false;
             }
         }, bulbasaur);
+
+        alex.searchStat(pokémon -> pokémon.getAtk() > 25, bulbasaur);
+        alex.searchStat(pokémon -> pokémon.getHp() > 20, bulbasaur);
     }
 }
