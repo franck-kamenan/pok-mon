@@ -2,6 +2,7 @@ package be.intecbrussel.lambda.pokemon.entity;
 
 import be.intecbrussel.lambda.pokemon.services.RandomService;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Pokémon
@@ -95,7 +96,15 @@ public class Pokémon
     @Override
     public int hashCode()
     {
-        return Object.hash(name, pokéType, hp, atk, def);
+        return Objects.hash(name, pokéType, hp, atk, def);
     }
 
+    @Override
+    public String toString() {
+        return "Pokémon name:" + name + "\n" +
+                "Pokémon type:" + pokéType + "\n" +
+                "Pokémon HP:" + hp + "\n" +
+                "Pokémon ATTACK:" + atk + "\n" +
+                "Pokémon DEF:" + def + "\n";
+    }
 }
